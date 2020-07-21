@@ -4,9 +4,10 @@ import { TabRoutingModule } from './tab-routing.module';
 import { TabGroupComponent } from './tab-group.component';
 import { TabPanelComponent } from './tab-panel.component';
 import { TabHomeComponent } from './tab-home.component';
+import { TabBsGroupComponent } from './tab-bs-group.component';
 
 @NgModule({
-    declarations: [TabGroupComponent,TabPanelComponent, TabHomeComponent],
+    declarations: [TabGroupComponent, TabPanelComponent, TabHomeComponent, TabBsGroupComponent],
     imports: [
         CommonModule,
         TabRoutingModule

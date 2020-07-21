@@ -6,7 +6,9 @@ import { TabPanelComponent } from './tab-panel.component';
     template: `
         <div class="tab-headers">
             <div class="tab-header-item"
-                *ngFor="let tab of tabPanelList; let idx = index" (click)="activeIndexChange.emit(idx)">
+                *ngFor="let tab of tabPanelList; let idx = index"
+                [class.active]="idx === activeIndex"
+                (click)="activeIndexChange.emit(idx)">
                 {{ tab.title }}
                 <button (click)="removeTab(tab)">x</button>
             </div>
@@ -20,7 +22,22 @@ import { TabPanelComponent } from './tab-panel.component';
             No more tabs.
         </ng-template>
     `,
-    styles: []
+    styles: [
+        `
+        .tab-headers {
+            display: flex;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #000;
+            margin-bottom: 0.5rem;
+        }
+        .tab-header-item {
+            margin-right: 0.5rem;
+        }
+        .tab-header-item.active{
+            border: 1px solid red;
+        }
+        `
+    ]
 })
 
 export class TabGroupComponent {

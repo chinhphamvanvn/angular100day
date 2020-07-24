@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { fromEvent, Subject } from 'rxjs';
 import { map, debounceTime, takeUntil } from 'rxjs/operators';
+import { RandomServiceService } from './services/random-service.service';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +10,23 @@ import { map, debounceTime, takeUntil } from 'rxjs/operators';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  data: Array<any>;
+  totalRecords: number;
+  page = 1;
+
+  constructor(private randomServiceService: RandomServiceService) {
+    this.data = new Array<any>();
+  }
 
   unsubscribe$ = new Subject<void>();
   phone;
   ngOnInit() {
+    this.randomServiceService.getData().subscribe(data => {
+      this.data = data.results;
+      this.totalRecords = data.results.length;
+    });
+
+
     const queryParamPhone = document.getElementById('queryParamPhone');
     const keydownqueryParamPhone$ = fromEvent(queryParamPhone, 'input');
     keydownqueryParamPhone$

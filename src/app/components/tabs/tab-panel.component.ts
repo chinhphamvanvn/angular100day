@@ -17,6 +17,7 @@ export class TabPanelComponent implements OnInit {
     constructor(private tabGroup: TabGroupComponent) {}
 
     ngOnInit() {
+        // moi lan khoi tao 1 component tab panel thi se goi den ham addTab 1 lan
         this.tabGroup.addTab(this);
     }
 }

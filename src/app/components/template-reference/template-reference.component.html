@@ -1,0 +1,11 @@
+<input type="text" #firstNameInput>
+<input type="text" #lastNameInput>
+<button (click)="show(lastNameInput)">Show</button>
+
+
+
+<ng-template #testingTemplate let-fullName="fullName">
+    <div>Full Name (template): {{fullName}}</div>
+ </ng-template>
+ <ng-container *ngTemplateOutlet="testingTemplate;context:ctx">
+ </ng-container>

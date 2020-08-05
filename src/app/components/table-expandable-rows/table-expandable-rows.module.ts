@@ -4,6 +4,9 @@ import { TableExpandableRowsComponent } from './table-expandable-rows.component'
 import { TableExpandableRowsRoutingModule } from './table-expandable-rows-routing.module';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [TableExpandableRowsComponent],
@@ -11,11 +14,15 @@ import {MatTableModule} from '@angular/material/table';
     CommonModule,
     TableExpandableRowsRoutingModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatCheckboxModule
   ]
 })
 export class TableExpandableRowsModule { }

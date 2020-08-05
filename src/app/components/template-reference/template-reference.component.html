@@ -1,11 +1,15 @@
-<input type="text" #firstNameInput>
-<input type="text" #lastNameInput>
-<button (click)="show(lastNameInput)">Show</button>
+<div  class="container">
+    <input type="text" id="first-name" autofocus  #firstNameInput placeholder="First name"><br/><br/>
+    <input type="text" #lastNameInput placeholder="Last name"><br/><br/>
+    <input type="text" id="email"  #email placeholder="Email"><br/><br/>
+    <button (click)="show(lastNameInput)">Show</button>
 
 
 
-<ng-template #testingTemplate let-fullName="fullName">
-    <div>Full Name (template): {{fullName}}</div>
- </ng-template>
- <ng-container *ngTemplateOutlet="testingTemplate;context:ctx">
- </ng-container>
+    <ng-template #testingTemplate let-fullName="fullName">
+        <div>Full Name (template): {{fullName}}</div><br>
+        <div>Email: {{email.value}}</div>
+    </ng-template>
+    <ng-container *ngTemplateOutlet="testingTemplate;context:ctx">
+    </ng-container>
+</div>

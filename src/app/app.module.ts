@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './components/home/home.module';
 import { HeroModule } from './components/hero/hero.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HeroModule } from './components/hero/hero.module';
     BrowserModule,
     AppRoutingModule,
     HomeModule,
-    HeroModule
+    HeroModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

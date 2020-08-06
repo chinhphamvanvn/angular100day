@@ -6,7 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import {CdkTableModule} from '@angular/cdk/table';
 
 @NgModule({
   declarations: [TableExpandableRowsComponent],
@@ -17,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatTableModule,
     MatCheckboxModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    CdkTableModule
   ],
   exports: [
     MatButtonModule,

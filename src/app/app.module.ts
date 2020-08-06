@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './components/home/home.module';
 import { HeroModule } from './components/hero/hero.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ApiSmartService } from './services/apismart.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,9 +18,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HomeModule,
     HeroModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ApiSmartService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

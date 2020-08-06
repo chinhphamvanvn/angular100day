@@ -11,6 +11,8 @@ const routes: Routes = [
   },
   { path: 'table-expandable-rows', loadChildren: () => import('./components/table-expandable-rows/table-expandable-rows.module')
       .then(m => m.TableExpandableRowsModule) },
+  { path: 'supplier', loadChildren: () => import('./components/supplier/supplier.module')
+      .then(m => m.SupplierModule) }
 ];
 
 @NgModule({

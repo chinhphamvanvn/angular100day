@@ -1,0 +1,26 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+const apismart = 'https://apismart.sunshinegroup.vn';
+const tokent = `Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc1QUY4OTQxQkEwQTFCNzA3RTMxQjk4QjJBMURDMENEQkZBRDQ5RTQiLCJ0eXAiOiJhdCtqd3QiLCJ4NXQiOiJkYS1KUWJvS0czQi1NYm1MS2gzQXpiLXRTZVEifQ.eyJuYmYiOjE1OTY3MTA2MTUsImV4cCI6MTU5NjcxMjQxNSwiaXNzIjoiaHR0cHM6Ly9hcGkuc3Vuc2hpbmVncm91cC52bjo1MDAwIiwiYXVkIjpbImFwaV9zcmUiLCJhcGlfc21hcnRfYmlndGVjIiwiYXBpX2NvcmVfYmlndGVjIl0sImNsaWVudF9pZCI6IndlYl9zX3NtYXJ0X2RldiIsInN1YiI6ImM1ODRhNDJmLWYyZjktNDJiOC1iN2FkLWZmM2JkMGY5ZDFmOCIsImF1dGhfdGltZSI6MTU5NjY4NzA1OCwiaWRwIjoibG9jYWwiLCJyb2xlIjpbInJvbF9jYWJfbWFuYWdlciIsInJvbF92aXNpdG9yX21hbmFnZXIiLCJyb2xfaG9tZV91c2VyIiwicm9sX2NhYl9kcml2ZXIiLCJyb2xfaG9tZV9tYW5hZ2VyIiwicm9sX2N1c3RfdXNlciIsInJvbF9zcmVfc2FsZXIiLCJyb2xfYWRtaW4iLCJyb2xfdXNyX21hbmFnZXIiLCJyb2xfcGF5X3VzZXIiLCJyb2xfdmlzaXRvcl9hZG1pbiIsInJvbF9yZXNfdXNlciIsInJvbF9zcmVfbWFuYWdlciIsInJvbF9jdXN0X21hbmFnZXIiLCJyb2xfcmVzX21hbmFnZXIiLCJyb2xfcGF5X21hbmFnZXIiLCJyb2xfdmlzaXRvcl91c2VyIiwicm9sX2hybV9tYW5hZ2VyIiwicm9sX21lbWJlciIsInJvbF9jYWJfdXNlciIsInJvbF9jdXN0b21lciIsInJvbF9zcGtfbWFuYWdlciIsInJvbF9zcmVfdXNlciJdLCJwZXJtaXNzaW9uIjpbImNsbV9jYWJfbWFuYWdlciIsImNsbV92aXNfbWFuYWdlciIsImNsbV9ob21fdXNlciIsImNsbV9jYWJfZHJpdmVyIiwiY2xtX2hvbV9tYW5hZ2VyIiwiY2xtX2N1c3RfdXNlciIsImNsbV9zcmVfc2FsZXIiLCJmdWxsX2FjY2VzcyIsInNtc19hY2Nlc3MiLCJqb2JfYWNjZXNzIiwiY3VzdG9tZXJfYWNjZXNzIiwiY2hhdF9hY2Nlc3MiLCJjaGF0X2FkbWluIiwiY2xtX3Zpc19zYWxlciIsImNsbV92aXNfYWRtaW4iLCJjbG1faG9tX2FkbWluIiwiY2xtX2NhYl91c2VyIiwiY2xtX3BheV91c2VyIiwiY2xtX3BheV9tYW5hZ2VyIiwiY2xtX3Nwa19tYW5hZ2VyIiwiY2xtX3Vzcl9tYW5hZ2VyIiwiY2xtX2hybV9tYW5hZ2VyIiwiY2xtX3Jlc19tYW5hZ2VyIiwiY2xtX3Jlc19pbnZlc3RvciIsImNsbV9yZXNfdXNlciIsImNsbV9jdXN0X21hbmFnZXIiLCJjbG1fc3JlX3VzZXIiLCJjbG1fc3JlX21hbmFnZXIiXSwibmFtZSI6InBhbGFjZTEiLCJzY29wZSI6WyJvcGVuaWQiLCJwcm9maWxlIiwiYXBpX3NyZSIsImFwaV9zbWFydF9iaWd0ZWMiLCJhcGlfY29yZV9iaWd0ZWMiXSwiYW1yIjpbInB3ZCJdfQ.c_A1XPBuYTsqChPqHjmx3n401sVXyPgPWvFVwef9m8ygqToyWB6JrTIC-56zrZgzjk0bPApSI1EjJDMdXZH75b3HWjVvJELaYx6WAghhk53msLSrTN1OIGl4ieQrtXTT5uxa_rTdP1k-Zs9Hc5pcRTy79Q4ccAmSDdvpb3No6SH6Ztvq6HO4I37hPYemRCXcy9Mllik813GRFh5KKMLYc-J4xDMuMT0XXFAVZz5_64BIB-3hmx1C9DilONVkmid09w4_lNyIrxOocQGgl3iXUIv_HzX728GY-sC01Oen-tL1AKsMYB_CBwb0e9BNiyU_9p-yTkm9eeH86ZCEDmNElQ`;
+@Injectable()
+
+export class ApiSmartService {
+    constructor(
+        private http: HttpClient
+    ) { }
+
+
+    options = {
+        headers: new HttpHeaders({
+            Authorization: tokent, // insert token here
+            'Content-Type': 'application/json',
+        })
+    };
+
+    getSupplierPage(queryParams): Observable<any> {
+        return this.http
+            .get<any>(`${apismart}/api/v1/supplier/GetSupplierPage?` + queryParams, this.options);
+    }
+}

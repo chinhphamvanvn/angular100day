@@ -2,7 +2,7 @@
     <mat-checkbox *ngFor="let task of columnDefinitions"[(ngModel)]="task.hide">{{task.label}}</mat-checkbox>
     <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container *ngFor="let column of columnDefinitions" [cdkColumnDef]="column.def">
-            <mat-header-cell *cdkHeaderCellDef>{{ column.header }}</mat-header-cell>
+            <mat-header-cell *cdkHeaderCellDef>{{ column.label }}</mat-header-cell>
             <mat-cell *cdkCellDef="let row">{{ column.cell(row) }}</mat-cell>
         </ng-container>
         <mat-header-row *matHeaderRowDef="getDisplayedColumns()"></mat-header-row>

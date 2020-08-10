@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ApiSmartService } from './services/apismart.service';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AgGridModule } from 'ag-grid-angular';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -19,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeModule,
     HeroModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgGridModule.withComponents([])
   ],
   providers: [
     ApiSmartService

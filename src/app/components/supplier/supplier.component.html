@@ -1,1 +1,9 @@
 <p>supplier works!</p>
+<div class="container">
+    <ag-grid-angular #agGrid style="width: 100%; height: 700px" id="myGrid" class="ag-theme-balham" [rowData]="lists?.data"
+    [columnDefs]="columnDefs" [groupDefaultExpanded]="groupDefaultExpanded" [masterDetail]="true"
+    [detailCellRendererParams]="detailCellRendererParams" [detailRowHeight]="detailRowHeight"
+    (gridReady)="onGridReady($event)" [defaultColDef]="defaultColDef" enableCellTextSelection=true floatingFilter
+    [groupUseEntireRow]="true" [enableRangeSelection]="true" [animateRows]="true" [getRowHeight]="getRowHeight"
+    [frameworkComponents]="frameworkComponents"></ag-grid-angular>
+</div>

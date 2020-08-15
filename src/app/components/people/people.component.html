@@ -1,0 +1,8 @@
+<div>
+    <h3>License</h3>
+    <div *ngFor="let p of people">
+        <p>Name: {{p.name}}</p>
+        <p>License: {{p.licenseType}}</p>
+        <p>Fee: {{calculateFee(p)}}</p>
+    </div>
+</div> 

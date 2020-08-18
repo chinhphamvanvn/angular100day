@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { fromEvent, Subject } from 'rxjs';
 import { map, debounceTime, takeUntil } from 'rxjs/operators';
+import { Store, PaypalPaymentProcessor, StripePaymentProcessor } from '../dependency-inversion-principle/test';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,16 @@ import { map, debounceTime, takeUntil } from 'rxjs/operators';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    const store1 = new Store(new PaypalPaymentProcessor('Chinh'));
+    const store2 = new Store(new StripePaymentProcessor('Hanh'));
+    console.log('store2', store2);
+    console.log('store1', store1);
+    store1.purchaseBike(2);
+    store1.purchaseHelmet(2);
+    store2.purchaseBike(2);
+    store2.purchaseHelmet(2);
+  }
 
   unsubscribe$ = new Subject<void>();
   phone;

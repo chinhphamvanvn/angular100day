@@ -1,3 +1,9 @@
+/*
+    Single responsibility principle: là mỗi class chỉ nên chịu trách nhiệm về một
+    tính năng duy nhất. Nếu xuất hiện đoạn code mà không thuộc về trách nhiệm
+    của class đó thì nên tách đoạn code đó ra một class khác xử lý.
+*/
+
 class UserSettings2 {
     user;
     auth;
@@ -20,6 +26,9 @@ class UserAuth {
     }
 
     verifyCredentials() {
-
+        if(this.user.role === "Admin") {
+            return true;
+        }
+        return false;
     }
 }

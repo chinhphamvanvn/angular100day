@@ -11,6 +11,9 @@ class UserSettings {
     }
 
     verifyCredentials() {
-        return true;
+        if(this.user.role === "Admin") {
+            return true;
+        }
+        return false;
     }
 }
